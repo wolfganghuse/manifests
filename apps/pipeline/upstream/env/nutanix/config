@@ -1,0 +1,20 @@
+{
+artifactRepository:
+{
+    s3: {
+        bucket: $(kfp-artifact-bucket-name),
+        keyPrefix: artifacts,
+        endpoint: objects.blaze.dachlab.net,
+        insecure: true,
+        accessKeySecret: {
+            name: mlpipeline-objects-artifact,
+            key: accesskey
+        },
+        secretKeySecret: {
+            name: mlpipeline-objects-artifact,
+            key: secretkey
+        }
+    },
+    archiveLogs: true
+}
+}

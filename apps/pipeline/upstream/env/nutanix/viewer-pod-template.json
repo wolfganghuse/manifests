@@ -1,0 +1,37 @@
+{
+  "spec": {
+    "containers": [
+      {
+        "env": [
+          {
+            "name": "AWS_ACCESS_KEY_ID",
+            "valueFrom": {
+              "secretKeyRef": {
+                "name": "mlpipeline-objects-artifact",
+                "key": "accesskey"
+              }
+            }
+          },
+          {
+            "name": "AWS_SECRET_ACCESS_KEY",
+            "valueFrom": {
+              "secretKeyRef": {
+                "name": "mlpipeline-objects-artifact",
+                "key": "secretkey"
+              }
+            }
+          },
+          {
+            "name": "AWS_REGION",
+            "valueFrom": {
+              "configMapKeyRef": {
+                "name": "pipeline-install-config",
+                "key": "objectsServiceRegion"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
